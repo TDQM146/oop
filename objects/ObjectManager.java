@@ -20,12 +20,13 @@ public class ObjectManager {
 
 	private Playing playing;
 	private BufferedImage[][] potionImgs, containerImgs;
-	private BufferedImage[] cannonImgs, grassImgs;
+	private BufferedImage[] cannonImgs, grassImgs, keyImgs;
 	private BufferedImage[][] treeImgs;
 	private BufferedImage spikeImg, cannonBallImg, seashellImgs, totemImgs;
 	private ArrayList<Potion> potions;
 	private ArrayList<GameContainer> containers;
 	private ArrayList<Projectile> projectiles = new ArrayList<>();
+	private ArrayList<Key> keys;
 
 	private Level currentLevel;
 
@@ -55,6 +56,11 @@ public class ObjectManager {
 					applyEffectToPlayer(p);
 				}
 			}
+		for (Key k : keys) {
+			if (hitbox.intersects(k.getHitbox())) {
+				k.setActive(false);
+			}
+		}
 	}
 
 	public void applyEffectToPlayer(Potion p) {
@@ -82,6 +88,7 @@ public class ObjectManager {
 		currentLevel = newLevel;
 		potions = new ArrayList<>(newLevel.getPotions());
 		containers = new ArrayList<>(newLevel.getContainers());
+		keys = new ArrayList<>(newLevel.getKeys());
 		projectiles.clear();
 	}
 
@@ -126,6 +133,12 @@ public class ObjectManager {
 		seashellImgs = LoadSave.GetSpriteAtlas(LoadSave.SEASHELL);
 
 		totemImgs = LoadSave.GetSpriteAtlas(LoadSave.TOTEM);
+
+		BufferedImage keySprite = LoadSave.GetSpriteAtlas(LoadSave.KEY);
+		keyImgs = new BufferedImage[8];
+		for (int i = 0; i < keyImgs.length; i++)
+			keyImgs[i] = keySprite.getSubimage(24*i,0, 24, 24);
+
 	}
 
 	public void update(int[][] lvlData, Player player) {
@@ -141,6 +154,9 @@ public class ObjectManager {
 		updateCannons(lvlData, player);
 		updateProjectiles(lvlData, player);
 
+		for(Key k : keys)
+			if (k.isActive())
+				k.update();
 
 	}
 
@@ -208,6 +224,15 @@ public class ObjectManager {
 		drawGrass(g, xLvlOffset);
 		drawSeashells(g, xLvlOffset);
 		drawTotems(g, xLvlOffset);
+		drawKey(g, xLvlOffset);
+	}
+
+	private void drawKey(Graphics g, int xLvlOffset) {
+		for (Key k : keys)
+			if (k.isActive()) {
+				g.drawImage(keyImgs[k.getAniIndex()], (int) (k.getHitbox().x), (int) (k.getHitbox().y), 4* KEY_WIDTH,2* KEY_HEIGHT,
+					null);
+		}
 	}
 
 	private void drawTotems(Graphics g, int xLvlOffset) {
@@ -308,5 +333,7 @@ public class ObjectManager {
 			gc.reset();
 		for (Cannon c : currentLevel.getCannons())
 			c.reset();
+		for (Key k : keys)
+			k.reset();
 	}
 }
