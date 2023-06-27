@@ -30,6 +30,7 @@ public class Level {
 	private ArrayList<Grass> grass = new ArrayList<>();
 	private ArrayList<Seashell> seashells = new ArrayList<>();
 	private ArrayList<Totem> totems = new ArrayList<>();
+	private ArrayList<Key> keys = new ArrayList<>();
 
 	private int lvlTilesWide;
 	private int maxTilesOffset;
@@ -95,6 +96,7 @@ public class Level {
 		case TREE_ONE, TREE_TWO, TREE_THREE -> trees.add(new BackgroundTree(x * Game.TILES_SIZE, y * Game.TILES_SIZE, blueValue));
 		case SEA_SHELL_LEFT, SEA_SHELL_RIGHT -> seashells.add(new Seashell(x * Game.TILES_SIZE, y * Game.TILES_SIZE, blueValue));
 		case TOTEM_LEFT, TOTEM_RIGHT -> totems.add(new Totem(x * Game.TILES_SIZE, y * Game.TILES_SIZE, blueValue));
+		case KEY -> keys.add(new Key(x * Game.TILES_SIZE, y * Game.TILES_SIZE, blueValue));
 		}
 	}
 
@@ -160,5 +162,8 @@ public class Level {
 	}
 	public ArrayList<Totem> getTotems() {
 		return totems;
+	}
+	public ArrayList<Key> getKeys() {
+		return keys;
 	}
 }
