@@ -9,12 +9,7 @@ import entities.Crabby;
 import entities.Pinkstar;
 import entities.Shark;
 import main.Game;
-import objects.BackgroundTree;
-import objects.Cannon;
-import objects.GameContainer;
-import objects.Grass;
-import objects.Potion;
-import objects.Spike;
+import objects.*;
 
 import static utilz.Constants.EnemyConstants.*;
 import static utilz.Constants.ObjectConstants.*;
@@ -33,6 +28,8 @@ public class Level {
 	private ArrayList<Cannon> cannons = new ArrayList<>();
 	private ArrayList<BackgroundTree> trees = new ArrayList<>();
 	private ArrayList<Grass> grass = new ArrayList<>();
+	private ArrayList<Seashell> seashells = new ArrayList<>();
+	private ArrayList<Totem> totems = new ArrayList<>();
 
 	private int lvlTilesWide;
 	private int maxTilesOffset;
@@ -66,7 +63,7 @@ public class Level {
 	}
 
 	private void loadLevelData(int redValue, int x, int y) {
-		if (redValue >= 50)
+		if (redValue >= 145)
 			lvlData[y][x] = 0;
 		else
 			lvlData[y][x] = redValue;
@@ -96,6 +93,8 @@ public class Level {
 		case SPIKE -> spikes.add(new Spike(x * Game.TILES_SIZE, y * Game.TILES_SIZE, SPIKE));
 		case CANNON_LEFT, CANNON_RIGHT -> cannons.add(new Cannon(x * Game.TILES_SIZE, y * Game.TILES_SIZE, blueValue));
 		case TREE_ONE, TREE_TWO, TREE_THREE -> trees.add(new BackgroundTree(x * Game.TILES_SIZE, y * Game.TILES_SIZE, blueValue));
+		case SEA_SHELL_LEFT, SEA_SHELL_RIGHT -> seashells.add(new Seashell(x * Game.TILES_SIZE, y * Game.TILES_SIZE, blueValue));
+		case TOTEM_LEFT, TOTEM_RIGHT -> totems.add(new Totem(x * Game.TILES_SIZE, y * Game.TILES_SIZE, blueValue));
 		}
 	}
 
@@ -156,5 +155,10 @@ public class Level {
 	public ArrayList<Grass> getGrass() {
 		return grass;
 	}
-
+	public ArrayList<Seashell> getSeashells() {
+		return seashells;
+	}
+	public ArrayList<Totem> getTotems() {
+		return totems;
+	}
 }
