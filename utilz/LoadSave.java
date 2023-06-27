@@ -48,6 +48,7 @@ public class LoadSave {
 	public static final String SHIP = "ship.png";
 	public static final String SEASHELL = "seashell.png";
 	public static final String TOTEM = "totem.png";
+	public static final String KEY = "chest_key.png";
 
 	public static BufferedImage GetSpriteAtlas(String fileName) {
 		BufferedImage img = null;
