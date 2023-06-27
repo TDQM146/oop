@@ -22,7 +22,7 @@ public class ObjectManager {
 	private BufferedImage[][] potionImgs, containerImgs;
 	private BufferedImage[] cannonImgs, grassImgs;
 	private BufferedImage[][] treeImgs;
-	private BufferedImage spikeImg, cannonBallImg;
+	private BufferedImage spikeImg, cannonBallImg, seashellImgs, totemImgs;
 	private ArrayList<Potion> potions;
 	private ArrayList<GameContainer> containers;
 	private ArrayList<Projectile> projectiles = new ArrayList<>();
@@ -122,6 +122,10 @@ public class ObjectManager {
 		grassImgs = new BufferedImage[2];
 		for (int i = 0; i < grassImgs.length; i++)
 			grassImgs[i] = grassTemp.getSubimage(32 * i, 0, 32, 32);
+
+		seashellImgs = LoadSave.GetSpriteAtlas(LoadSave.SEASHELL);
+
+		totemImgs = LoadSave.GetSpriteAtlas(LoadSave.TOTEM);
 	}
 
 	public void update(int[][] lvlData, Player player) {
@@ -136,6 +140,7 @@ public class ObjectManager {
 
 		updateCannons(lvlData, player);
 		updateProjectiles(lvlData, player);
+
 
 	}
 
@@ -201,6 +206,35 @@ public class ObjectManager {
 		drawCannons(g, xLvlOffset);
 		drawProjectiles(g, xLvlOffset);
 		drawGrass(g, xLvlOffset);
+		drawSeashells(g, xLvlOffset);
+		drawTotems(g, xLvlOffset);
+	}
+
+	private void drawTotems(Graphics g, int xLvlOffset) {
+		for (Totem t : currentLevel.getTotems()) {
+			int x = (int) (t.getHitbox().x - xLvlOffset);
+			int width = TOTEM_WIDTH;
+
+			if (t.getObjType() == TOTEM_RIGHT) {
+				x += width;
+				width *= -1;
+//				+ (int)(Game.SCALE*15);
+			}
+			g.drawImage(totemImgs, x, (int) (t.getHitbox().y),(int) (1.2 *width), TOTEM_HEIGHT, null);
+		}
+	}
+
+	private void drawSeashells(Graphics g, int xLvlOffset) {
+		for (Seashell s : currentLevel.getSeashells()) {
+			int x = (int) (s.getHitbox().x - xLvlOffset);
+			int width = SEASHELL_WIDTH;
+
+			if (s.getObjType() == SEA_SHELL_RIGHT) {
+				x += width + (int)(Game.SCALE*15);
+				width *= -1;
+			}
+			g.drawImage(seashellImgs, x, (int) (s.getHitbox().y),(int)(1.5*width), 2*SEASHELL_HEIGHT, null);
+		}
 	}
 
 	private void drawGrass(Graphics g, int xLvlOffset) {
