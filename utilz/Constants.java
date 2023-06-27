@@ -45,6 +45,11 @@ public class Constants {
 		public static final int TREE_ONE = 7;
 		public static final int TREE_TWO = 8;
 		public static final int TREE_THREE = 9;
+		public static final int SEA_SHELL_LEFT = 10;
+		public static final int SEA_SHELL_RIGHT = 11;
+		public static final int TOTEM_LEFT = 12;
+		public static final int TOTEM_RIGHT = 13;
+
 
 		public static final int RED_POTION_VALUE = 15;
 		public static final int BLUE_POTION_VALUE = 10;
@@ -69,6 +74,17 @@ public class Constants {
 		public static final int CANNON_WIDTH = (int) (CANNON_WIDTH_DEFAULT * Game.SCALE);
 		public static final int CANNON_HEIGHT = (int) (CANNON_HEIGHT_DEFAULT * Game.SCALE);
 
+		public static final int SEASHELL_WIDTH_DEFAULT = 32;
+		public static final int SEASHELL_HEIGHT_DEFAULT = 21;
+		public static final int SEASHELL_WIDTH = (int) (SEASHELL_WIDTH_DEFAULT * Game.SCALE);
+		public static final int SEASHELL_HEIGHT = (int) (SEASHELL_HEIGHT_DEFAULT * Game.SCALE);
+
+		public static final int TOTEM_WIDTH_DEFAULT = 58;
+		public static final int TOTEM_HEIGHT_DEFAULT = 75;
+		public static final int TOTEM_WIDTH = (int) (TOTEM_WIDTH_DEFAULT * Game.SCALE);
+		public static final int TOTEM_HEIGHT = (int) (TOTEM_HEIGHT_DEFAULT * Game.SCALE);
+
+
 		public static int GetSpriteAmount(int object_type) {
 			switch (object_type) {
 			case RED_POTION, BLUE_POTION:
@@ -77,6 +93,8 @@ public class Constants {
 				return 8;
 			case CANNON_LEFT, CANNON_RIGHT:
 				return 7;
+				case SEA_SHELL_LEFT, SEA_SHELL_RIGHT, TOTEM_LEFT, TOTEM_RIGHT:
+					return 1;
 			}
 			return 1;
 		}
