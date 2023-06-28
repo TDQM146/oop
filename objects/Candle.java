@@ -2,19 +2,18 @@ package objects;
 
 import main.Game;
 
-public class Key extends GameObject{
-    public Key(int x, int y, int objType) {
+public class Candle extends GameObject{
+    public Candle(int x, int y, int objType) {
         super(x, y, objType);
         doAnimation = true;
-        initHitbox(8, 15);
+        initHitbox(10, 20);
 
-        xDrawOffset = (int) (8 * Game.SCALE);
+        xDrawOffset = (int) (11 * Game.SCALE);
         yDrawOffset = (int) (5 * Game.SCALE);
 
-
+        hitbox.y -= (int) (2 * Game.SCALE);
     }
     public void update() {
         updateAnimationTick();
     }
-
 }

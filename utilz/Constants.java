@@ -50,6 +50,11 @@ public class Constants {
 		public static final int TOTEM_LEFT = 12;
 		public static final int TOTEM_RIGHT = 13;
 		public static final int KEY = 14;
+		public static final int SHIP_HELM = 15;
+		public static final int FLAG = 16;
+		public static final int CANDLE = 17;
+		public static final int CANDLE_LIGHT = 18;
+		public static final int WINDOW = 19;
 
 
 		public static final int RED_POTION_VALUE = 15;
@@ -90,6 +95,31 @@ public class Constants {
 		public static final int KEY_WIDTH = (int) (KEY_WIDTH_DEFAULT * Game.SCALE);
 		public static final int KEY_HEIGHT = (int) (KEY_HEIGHT_DEFAULT * Game.SCALE);
 
+		public static final int SHIP_HELM_WIDTH_DEFAULT = 31;
+		public static final int SHIP_HELM_HEIGHT_DEFAULT = 32;
+		public static final int SHIP_HELM_WIDTH = (int) (SHIP_HELM_WIDTH_DEFAULT * Game.SCALE);
+		public static final int SHIP_HELM_HEIGHT = (int) (SHIP_HELM_HEIGHT_DEFAULT * Game.SCALE);
+
+		public static final int FLAG_WIDTH_DEFAULT = 54;
+		public static final int FLAG_HEIGHT_DEFAULT = 93;
+		public static final int FLAG_WIDTH = (int) (FLAG_WIDTH_DEFAULT * Game.SCALE);
+		public static final int FLAG_HEIGHT = (int) (FLAG_HEIGHT_DEFAULT * Game.SCALE);
+
+		public static final int CANDLE_WIDTH_DEFAULT = 10;
+		public static final int CANDLE_HEIGHT_DEFAULT = 20;
+		public static final int CANDLE_WIDTH = (int) (CANDLE_WIDTH_DEFAULT * Game.SCALE);
+		public static final int CANDLE_HEIGHT = (int) (CANDLE_HEIGHT_DEFAULT * Game.SCALE);
+
+		public static final int CANDLE_LIGHT_WIDTH_DEFAULT = 32;
+		public static final int CANDLE_LIGHT_HEIGHT_DEFAULT = 32;
+		public static final int CANDLE_LIGHT_WIDTH = (int) (CANDLE_LIGHT_WIDTH_DEFAULT * Game.SCALE);
+		public static final int CANDLE_LIGHT_HEIGHT = (int) (CANDLE_LIGHT_HEIGHT_DEFAULT * Game.SCALE);
+
+		public static final int WINDOW_WIDTH_DEFAULT = 32;
+		public static final int WINDOW_HEIGHT_DEFAULT = 32;
+		public static final int WINDOW_WIDTH = (int) (WINDOW_WIDTH_DEFAULT * Game.SCALE);
+		public static final int WINDOW_HEIGHT = (int) (WINDOW_HEIGHT_DEFAULT * Game.SCALE);
+
 
 		public static int GetSpriteAmount(int object_type) {
 			switch (object_type) {
@@ -99,6 +129,16 @@ public class Constants {
 					return 8;
 				case SEA_SHELL_LEFT, SEA_SHELL_RIGHT, TOTEM_LEFT, TOTEM_RIGHT:
 					return 1;
+				case SHIP_HELM:
+					return 10;
+				case FLAG:
+					return 9;
+				case CANDLE:
+					return 6;
+				case CANDLE_LIGHT:
+					return 4;
+				case WINDOW:
+					return 74;
 			}
 			return 1;
 		}
