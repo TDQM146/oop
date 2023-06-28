@@ -8,8 +8,9 @@ public class Key extends GameObject{
         doAnimation = true;
         initHitbox(8, 15);
 
-        xDrawOffset = (int) (3 * Game.SCALE);
-        yDrawOffset = (int) (2 * Game.SCALE);
+        xDrawOffset = (int) (8 * Game.SCALE);
+        yDrawOffset = (int) (5 * Game.SCALE);
+
 
     }
     public void update() {
