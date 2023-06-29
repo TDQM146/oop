@@ -49,8 +49,13 @@ public class HelpMethods {
 
 	public static boolean IsTileSolid(int xTile, int yTile, int[][] lvlData) {
 		int value = lvlData[yTile][xTile];
-		if (value == 11 || value == 48 || value == 49 || (value >= 96 && value != 107)) return false;
-		return true;
+
+		switch (value) {
+		case 11, 48, 49:
+			return false;
+		default:
+			return true;
+		}
 
 	}
 

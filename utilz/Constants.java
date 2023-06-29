@@ -45,17 +45,6 @@ public class Constants {
 		public static final int TREE_ONE = 7;
 		public static final int TREE_TWO = 8;
 		public static final int TREE_THREE = 9;
-		public static final int SEA_SHELL_LEFT = 10;
-		public static final int SEA_SHELL_RIGHT = 11;
-		public static final int TOTEM_LEFT = 12;
-		public static final int TOTEM_RIGHT = 13;
-		public static final int KEY = 14;
-		public static final int SHIP_HELM = 15;
-		public static final int FLAG = 16;
-		public static final int CANDLE = 17;
-		public static final int CANDLE_LIGHT = 18;
-		public static final int WINDOW = 19;
-
 
 		public static final int RED_POTION_VALUE = 15;
 		public static final int BLUE_POTION_VALUE = 10;
@@ -80,65 +69,14 @@ public class Constants {
 		public static final int CANNON_WIDTH = (int) (CANNON_WIDTH_DEFAULT * Game.SCALE);
 		public static final int CANNON_HEIGHT = (int) (CANNON_HEIGHT_DEFAULT * Game.SCALE);
 
-		public static final int SEASHELL_WIDTH_DEFAULT = 32;
-		public static final int SEASHELL_HEIGHT_DEFAULT = 21;
-		public static final int SEASHELL_WIDTH = (int) (SEASHELL_WIDTH_DEFAULT * Game.SCALE);
-		public static final int SEASHELL_HEIGHT = (int) (SEASHELL_HEIGHT_DEFAULT * Game.SCALE);
-
-		public static final int TOTEM_WIDTH_DEFAULT = 58;
-		public static final int TOTEM_HEIGHT_DEFAULT = 75;
-		public static final int TOTEM_WIDTH = (int) (TOTEM_WIDTH_DEFAULT * Game.SCALE);
-		public static final int TOTEM_HEIGHT = (int) (TOTEM_HEIGHT_DEFAULT * Game.SCALE);
-
-		public static final int KEY_WIDTH_DEFAULT = 8;
-		public static final int KEY_HEIGHT_DEFAULT = 15;
-		public static final int KEY_WIDTH = (int) (KEY_WIDTH_DEFAULT * Game.SCALE);
-		public static final int KEY_HEIGHT = (int) (KEY_HEIGHT_DEFAULT * Game.SCALE);
-
-		public static final int SHIP_HELM_WIDTH_DEFAULT = 31;
-		public static final int SHIP_HELM_HEIGHT_DEFAULT = 32;
-		public static final int SHIP_HELM_WIDTH = (int) (SHIP_HELM_WIDTH_DEFAULT * Game.SCALE);
-		public static final int SHIP_HELM_HEIGHT = (int) (SHIP_HELM_HEIGHT_DEFAULT * Game.SCALE);
-
-		public static final int FLAG_WIDTH_DEFAULT = 54;
-		public static final int FLAG_HEIGHT_DEFAULT = 93;
-		public static final int FLAG_WIDTH = (int) (FLAG_WIDTH_DEFAULT * Game.SCALE);
-		public static final int FLAG_HEIGHT = (int) (FLAG_HEIGHT_DEFAULT * Game.SCALE);
-
-		public static final int CANDLE_WIDTH_DEFAULT = 10;
-		public static final int CANDLE_HEIGHT_DEFAULT = 20;
-		public static final int CANDLE_WIDTH = (int) (CANDLE_WIDTH_DEFAULT * Game.SCALE);
-		public static final int CANDLE_HEIGHT = (int) (CANDLE_HEIGHT_DEFAULT * Game.SCALE);
-
-		public static final int CANDLE_LIGHT_WIDTH_DEFAULT = 32;
-		public static final int CANDLE_LIGHT_HEIGHT_DEFAULT = 32;
-		public static final int CANDLE_LIGHT_WIDTH = (int) (CANDLE_LIGHT_WIDTH_DEFAULT * Game.SCALE);
-		public static final int CANDLE_LIGHT_HEIGHT = (int) (CANDLE_LIGHT_HEIGHT_DEFAULT * Game.SCALE);
-
-		public static final int WINDOW_WIDTH_DEFAULT = 32;
-		public static final int WINDOW_HEIGHT_DEFAULT = 32;
-		public static final int WINDOW_WIDTH = (int) (WINDOW_WIDTH_DEFAULT * Game.SCALE);
-		public static final int WINDOW_HEIGHT = (int) (WINDOW_HEIGHT_DEFAULT * Game.SCALE);
-
-
 		public static int GetSpriteAmount(int object_type) {
 			switch (object_type) {
-				case RED_POTION, BLUE_POTION, CANNON_LEFT, CANNON_RIGHT:
-					return 7;
-				case BARREL, BOX, KEY:
-					return 8;
-				case SEA_SHELL_LEFT, SEA_SHELL_RIGHT, TOTEM_LEFT, TOTEM_RIGHT:
-					return 1;
-				case SHIP_HELM:
-					return 10;
-				case FLAG:
-					return 9;
-				case CANDLE:
-					return 6;
-				case CANDLE_LIGHT:
-					return 4;
-				case WINDOW:
-					return 74;
+			case RED_POTION, BLUE_POTION:
+				return 7;
+			case BARREL, BOX:
+				return 8;
+			case CANNON_LEFT, CANNON_RIGHT:
+				return 7;
 			}
 			return 1;
 		}
@@ -335,18 +273,17 @@ public class Constants {
 
 		public static int GetSpriteAmount(int player_action) {
 			switch (player_action) {
-				case DEAD:
-				return 7;
+			case DEAD:
+				return 8;
 			case RUNNING:
-				return 12;
-			case IDLE:
-				return 11;
-				case JUMP:
 				return 6;
+			case IDLE:
+				return 5;
+			case HIT:
+				return 4;
+			case JUMP:
 			case ATTACK:
 				return 3;
-				case HIT:
-					return 4;
 			case FALLING:
 			default:
 				return 1;
