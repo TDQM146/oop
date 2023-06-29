@@ -20,7 +20,7 @@ public class BackgroundTree {
 
 	public void update() {
 		aniTick++;
-		if (aniTick >= 35) {
+		if (aniTick >= 30) {
 			aniTick = 0;
 			aniIndex++;
 			if (aniIndex >= 4)
